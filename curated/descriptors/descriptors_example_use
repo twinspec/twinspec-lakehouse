@@ -1,0 +1,3 @@
+material_id,descriptor_source,descriptor_json,created_at
+PNDI2ODT2,RDKit,"{""TPSA"":150.0,""logP"":6.2,""aromatic_atoms"":34}",2025-12-10
+PE,RDKit,"{""TPSA"":0.0,""logP"":2.0,""aromatic_atoms"":0}",2025-12-10

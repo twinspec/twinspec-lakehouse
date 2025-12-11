@@ -1,0 +1,7 @@
+material_id,class,name,subclass,formula_or_sequence,repeat_unit_smiles,notes
+PNDI2ODT2,polymer,P(NDI2OD-T2),conjugated_polymer,,"SMILES_HERE","DA polymer for GIWAXS demo"
+PE,polymer,Polyethylene,commodity_polymer,(CH2)n,"CC","Reference semicrystalline polymer"
+TiO2_anatase,oxide,TiO2 (anatase),metal_oxide,TiO2,,"Anatase phase for slab film"
+MOF_generic,metal_organic,Generic MOF,MOF,Zn4O(BDC)3,,"Placeholder MOF for metal–organic class"
+Biomat_1,biomaterial,Biomaterial 1,protein_or_polymer,SEQUENCE_OR_FORMULA,, "First biomaterial system"
+Biomat_2,biomaterial,Biomaterial 2,protein_or_polymer,SEQUENCE_OR_FORMULA,, "Second biomaterial system"
