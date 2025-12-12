@@ -1,0 +1,4 @@
+from repo root
+    python scripts/digitize_giwaxs.py
+    python scripts/audit_paths.py
+

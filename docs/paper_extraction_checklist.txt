@@ -1,0 +1,57 @@
+TwinSpec Paper Extraction Checklist
+===================================
+
+For each new paper:
+
+[ ] 1. Register paper
+    [ ] Save PDF to raw/literature/papers/<paper_id>.pdf
+    [ ] Choose paper_id (e.g. PNDI2ODT2_2019_Kim)
+    [ ] Add DOI, title, year to method_json file
+
+[ ] 2. Identify materials and experiments
+    [ ] List all materials used (link to material_id in curated/materials/materials.csv)
+    [ ] Identify which film(s) you will digitize first (define experiment_id for each)
+
+[ ] 3. Crop figures
+    [ ] Crop 2D GIWAXS/XRD images to raw/literature/fig_crops/<experiment_id>_2D.png
+    [ ] Crop 1D linecuts (if shown) to raw/literature/fig_crops/<experiment_id>_1D.png
+    [ ] Update method_json["figures"] entries with crop_path values
+
+[ ] 4. Digitize plots
+    [ ] Use WebPlotDigitizer/Engauge on 1D linecut(s)
+        [ ] Export raw CSV locally
+        [ ] Run: python scripts/digitize_giwaxs.py 1d --raw <path> --experiment-id <experiment_id> ...
+        [ ] Note printed giwaxs_1d_path
+        [ ] Update method_json["figures"][...]["digitized_1d_csv"]
+    [ ] (Optional) Digitize 2D intensity map
+        [ ] Export raw CSV
+        [ ] Run: python scripts/digitize_giwaxs.py 2d --raw <path> --experiment-id <experiment_id> ...
+        [ ] Note printed giwaxs_2d_path
+        [ ] Update method_json["figures"][...]["digitized_2d_csv"]
+
+[ ] 5. Update experiments.csv
+    [ ] Add or update a row in curated/experiments/experiments.csv:
+        [ ] experiment_id
+        [ ] material_id
+        [ ] source_type = literature
+        [ ] source_doi
+        [ ] solvent, concentration, casting_method, substrate
+        [ ] anneal_temp_C, anneal_time_min, film_thickness_nm (if known)
+        [ ] char_type (GIWAXS/XRD/etc.)
+        [ ] char_metadata_json (include paper_id and key GIWAXS setup values)
+        [ ] peaks_json (approximate q/d values)
+        [ ] orientation_label
+        [ ] notes
+        [ ] giwaxs_1d_path, giwaxs_2d_path set from digitization step
+
+[ ] 6. Geometry linkage (if available)
+    [ ] If you have or plan a geometry for this experiment:
+        [ ] Add/verify row in curated/computed_structures/computed_structures.csv
+        [ ] Ensure geometry_path points to raw/computed/geometry_xyz/<structure>.xyz
+
+[ ] 7. Audit and commit
+    [ ] Run: python scripts/audit_paths.py
+        [ ] Fix any missing-path errors
+    [ ] git add raw/ curated/ docs/
+    [ ] git commit -m "Add <paper_id> GIWAXS extraction for <experiment_id>"
+    [ ] git push

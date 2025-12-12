@@ -5,3 +5,13 @@ TiO2_sputtered_RT,TiO2_anatase,literature,10.8888/tio2.2019,,,"sputter",glass,25
 MOF_spincoat_RT,MOF_generic,literature,10.7777/mof.2018,DMF,20,spincoat,glass,25,0,100,XRD,"{}","{""q100"":0.80,""q110"":1.20}","textured","MOF film"
 Biomat1_cast_RT,Biomat_1,literature,10.6666/biomat1.2017,water,15,dropcast,glass,25,0,60,SAXS,"{}","{}","isotropic","Biomaterial 1 film"
 Biomat2_cast_RT,Biomat_2,literature,10.5555/biomat2.2016,buffer,10,spincoat,glass,25,0,40,SAXS,"{}","{}","isotropic","Biomaterial 2 film"
+
+
+
+After additional columns added
+PNDI2ODT2_CB_120C,PNDI2ODT2,literature,10.1234/abcd.5678,
+chlorobenzene,10,bladecoat,SiO2,
+120,10,85,
+GIWAXS,"{""beam_energy_keV"":10.0}","{""q100"":0.30,""q001"":1.76,""d100"":20.9,""d001"":3.57}","edge-on","Main P(NDI2OD-T2) demo film",
+raw/literature/giwaxs_1d_csv/PNDI2ODT2_CB_120C_linecut.csv,
+raw/literature/giwaxs_2d_csv/PNDI2ODT2_CB_120C_map.csv

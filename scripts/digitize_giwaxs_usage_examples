@@ -1,0 +1,14 @@
+# 1D linecut
+python scripts/digitize_giwaxs.py 1d \
+  --raw /path/to/WebPlotDigitizer_export.csv \
+  --experiment-id PNDI2ODT2_CB_120C \
+  --linecut-id oop \
+  --direction out_of_plane \
+  --q-units 1/A
+
+# 2D map
+python scripts/digitize_giwaxs.py 2d \
+  --raw /path/to/map_export.csv \
+  --experiment-id PNDI2ODT2_CB_120C \
+  --map-id full \
+  --geometry qz_qxy
