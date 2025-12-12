@@ -70,10 +70,10 @@ curated/materials/materials.csv
 `
 
 One row per material.
-    ```csv
+    `md
     | material_id | class | name | subclass | chemical_formula | repeat_unit_smiles | notes |
     |-------------|-------|------|----------|------------------|--------------------|-------|
-    ```
+    `
 
 Example:
     ```
