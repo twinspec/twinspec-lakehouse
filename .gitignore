@@ -1,0 +1,47 @@
+
+## `.gitignore` for `twinspec-lakehouse`
+
+Use this at the repo root:
+
+```gitignore
+# OS junk
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pkl
+*.egg-info/
+.env
+.venv
+venv/
+env/
+pip-wheel-metadata/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# VS Code
+.vscode/
+.history/
+
+# Logs and temp
+*.log
+*.tmp
+*.bak
+*.swp
+*.swo
+
+# Data that should not be versioned (optional; comment out if you want all raw data in git)
+# If some files become huge, consider adding patterns here or using Git LFS instead.
+
+# Unity metadata output (you might choose to track or ignore these)
+# If you want Unity metadata regenerated from CSVs, ignore them:
+# unity_metadata/*.json
+
+# Misc
+*.DS_Store

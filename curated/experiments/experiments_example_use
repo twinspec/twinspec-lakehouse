@@ -1,4 +1,4 @@
-experiment_id,material_id,source_type,source_doi,solvent,concentration_mg_ml,casting_method,substrate,anneal_temp_C,anneal_time_min,film_thickness_nm,char_type,char_metadata_json,peaks_json,orientation_label,notes
+experiment_id,material_id,reference_type,reference_doi,solvent,concentration_mg_ml,casting_method,substrate,anneal_temp_C,anneal_time_min,film_thickness_nm,char_type,char_metadata_json,peaks_json,orientation_label,notes
 PNDI2ODT2_CB_120C,PNDI2ODT2,literature,10.1234/abcd.5678,chlorobenzene,10,bladecoat,SiO2,120,10,85,GIWAXS,"{""beam_energy_keV"":10.0}","{""q100"":0.30,""q001"":1.76,""d100"":20.9,""d001"":3.57}","edge-on","Main P(NDI2OD-T2) demo film"
 PE_xylene_RT,PE,literature,10.9999/pe.2020,xylene,5,dropcast,glass,25,0,50,XRD,"{}","{""q1"":1.50,""q2"":2.00}","mixed","Approximate PE semicrystalline film"
 TiO2_sputtered_RT,TiO2_anatase,literature,10.8888/tio2.2019,,,"sputter",glass,25,0,80,XRD,"{}","{""q101"":1.30,""q004"":2.60}","textured (001)","Anatase TiO2 film"
