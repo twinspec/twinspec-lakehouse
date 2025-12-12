@@ -70,19 +70,19 @@ curated/materials/materials.csv
 `
 
 One row per material.
-    `csv
+    ```csv
     | material_id | class | name | subclass | chemical_formula | repeat_unit_smiles | notes |
     |-------------|-------|------|----------|------------------|--------------------|-------|
-    `
+    ```
 
 Example:
-    `
+    ```
     | material_id   |  class  |     name     |      subclass      | chemical_formula | repeat_unit_smiles |            notes           |
     |-------------|---------|--------------|--------------------|------------------|--------------------|----------------------------|
     | PNDI2ODT2     | polymer | P(NDI2OD-T2) | conjugated_polymer |                  |     SMILES_HERE    | DA polymer for GIWAXS demo |
     | PE            | polymer | Polyethylene | commodity_polymer  |      (CH2)n      |         CC         | Reference semicrystalline polymer |
     | TiO2_anatase  |  oxide  | TiO2 (anatase) | metal_oxide      |                  |                    | Anatase phase for slab film |
-
+    ```
 
 `
 curated/experiments/experiments.csv
@@ -91,12 +91,10 @@ curated/experiments/experiments.csv
 One row per film / experiment extracted from literature or generated in-house.
 
 Header:
-    `csv
+    ```csv
     |    experiment_id    | material_id | reference_type |  reference_doi    |    solvent    | concentration_mg_ml | casting_method | substrate | anneal_temp_C | anneal_time_min | film_thickness_nm | characterization_type | characterization_metadata_json | peaks_json | orientation_label | giwaxs_1d_path | giwaxs_2d_path | include_in_unity | notes |
     |---------------------|-------------|----------------|-------------------|---------------|---------------------|----------------|--------------|---------------|-----------------|-------------------|-----------------------|--------------------------------|------------|--------------------|----------------|----------------|------------------|-------|
-    
-    
-    `
+    ```
 
     - `characterization_type` : GIWAXS, XRD, SAXS, etc
     - `characterization_metadata_json` : JSON string for beam energy, incident angle, detector, etc.
