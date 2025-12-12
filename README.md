@@ -79,9 +79,9 @@ One row per material.
 
 Example:
     
-    ```
+    ```csv
     | material_id   |  class  |     name     |      subclass      | chemical_formula | repeat_unit_smiles |            notes           |
-    |-------------|---------|--------------|--------------------|------------------|--------------------|----------------------------|
+    |---------------|---------|--------------|--------------------|------------------|--------------------|----------------------------|
     | PNDI2ODT2     | polymer | P(NDI2OD-T2) | conjugated_polymer |                  |     SMILES_HERE    | DA polymer for GIWAXS demo |
     | PE            | polymer | Polyethylene | commodity_polymer  |      (CH2)n      |         CC         | Reference semicrystalline polymer |
     | TiO2_anatase  |  oxide  | TiO2 (anatase) | metal_oxide      |                  |                    | Anatase phase for slab film |
@@ -94,39 +94,41 @@ curated/experiments/experiments.csv
 One row per film / experiment extracted from literature or generated in-house.
 
 Header:
+    
     ```csv
     |    experiment_id    | material_id | reference_type |  reference_doi    |    solvent    | concentration_mg_ml | casting_method | substrate | anneal_temp_C | anneal_time_min | film_thickness_nm | characterization_type | characterization_metadata_json | peaks_json | orientation_label | giwaxs_1d_path | giwaxs_2d_path | include_in_unity | notes |
     |---------------------|-------------|----------------|-------------------|---------------|---------------------|----------------|--------------|---------------|-----------------|-------------------|-----------------------|--------------------------------|------------|--------------------|----------------|----------------|------------------|-------|
     ```
 
-    - `characterization_type` : GIWAXS, XRD, SAXS, etc
-    - `characterization_metadata_json` : JSON string for beam energy, incident angle, detector, etc.
-    - `peaks_json` : JSON string for q-peaks, d-spacings, etc.
-    - `orientation_label` : e.g. `edge-on`, `face-on`, `mixed`, `textured`, `isotropic`, `unknown`
-    - `giwaxs_1d_path` : repo-relative path to standardized 1D CSV in `raw/literature/giwaxs_1d/`
-    - `giwaxs_2d_path` : repo-relative path to standardized 2D CSV in `raw/literature/giwaxs_2d/`
-    - `include_in_unity` : 1/true to export Unity metadata for this experiment
+    -   `characterization_type` : GIWAXS, XRD, SAXS, etc
+    -   `characterization_metadata_json` : JSON string for beam energy, incident angle, detector, etc.
+    -   `peaks_json` : JSON string for q-peaks, d-spacings, etc.
+    -   `orientation_label` : e.g. `edge-on`, `face-on`, `mixed`, `textured`, `isotropic`, `unknown`
+    -   `giwaxs_1d_path` : repo-relative path to standardized 1D CSV in `raw/literature/giwaxs_1d/`
+    -   `giwaxs_2d_path` : repo-relative path to standardized 2D CSV in `raw/literature/giwaxs_2d/`
+    -   `include_in_unity` : 1/true to export Unity metadata for this experiment
 
 Example:
-    `csv
+    
+    ```csv
     |    experiment_id    | material_id | reference_type |  reference_doi    |    solvent    | concentration_mg_ml | casting_method | substrate | anneal_temp_C | anneal_time_min | film_thickness_nm | characterization_type | characterization_metadata_json | peaks_json | orientation_label | giwaxs_1d_path | giwaxs_2d_path | include_in_unity | notes |
     |---------------------|-------------|----------------|-------------------|---------------|---------------------|----------------|--------------|---------------|-----------------|-------------------|-----------------------|--------------------------------|------------|--------------------|----------------|----------------|------------------|-------|
     | PNDI2ODT2_CB_120C   |  PNDI2ODT2  |   literature   | 10.1234/abcd.5678 | chlorobenzene |        10           |    bladecoat   |     SiO2      |      120      |        10       |        85         |         GIWAXS        |  "{""beam_energy_keV"":10.0}"  | "{""q100"":0.30,""q001"":1.76,""d100"":20.9,""d001"":3.57}" | "edge-on" | "Main demo film" | raw/literature/giwaxs_1d/PNDI2ODT2_CB_120C_linecut.csv | raw/literature/giwaxs_2d/PNDI2ODT2_CB_120C_map.csv | 1 |
-
-
+```
 
 `
 curated/computed_structures/computed_structures.csv
 `
 
 One row per geomtry (film segment, slab, etc.) that can be loaded into Unity or used for analysis.
-    `csv
+    
+    ```csv
     | structure_id | material_id | reference_type | method | geometry-path | box_size_A | created_at | notes |
     |-------------|-------|------|----------|------------------|--------------------|-------|
-    `
+    ```
 
-    - `geometry_path` : repo-relative path to XYZ/PDB file in `raw/computed/geometry_xyz/`
-    - `box_size_A` : JSON string for box dimensions, e.g. `{"Lx":80, "Ly":80, "Lz":50}`
+    -   `geometry_path` : repo-relative path to XYZ/PDB file in `raw/computed/geometry_xyz/`
+    -   `box_size_A` : JSON string for box dimensions, e.g. `{"Lx":80, "Ly":80, "Lz":50}`
 
 
 `
@@ -134,28 +136,31 @@ curated/descriptors/descriptors.csv
 `
 
 Per-material descriptors (e.g. RDKit), stored as JSON.
-    `csv
+    
+    ```csv
     | material_id | descriptor_source | descriptor_json | created_at | notes |
-    |-------------|-------------------|-----------------|------------|------|
-    `
+    |-------------|-------------------|-----------------|------------|-------|
+    ```
 
 
 Example:
-    `csv
-    | material_id | descriptor_source | descriptor_json | created_at | notes |
-    |-------------|-------------------|-----------------|------------|------|
-    | PNDI2ODT2   | RDKit             | "{""TPSA"":150.0,""logP"":6.2,""aromatic_atoms"":34}"    | 2025-12-10 |      |
-    `
+    
+    ```csv
+    | material_id | descriptor_source |                       descriptor_json                    | created_at | notes |
+    |-------------|-------------------|----------------------------------------------------------|------------|-------|
+    | PNDI2ODT2   | RDKit             | "{""TPSA"":150.0,""logP"":6.2,""aromatic_atoms"":34}"    | 2025-12-10 |       |
+    ```
 
 `
 feature_store/ml_ready/features_unified.csv
 `
 
 Joined feature rows (material + experiment + structure) for ML or synthetic model input.
-    `csv
+    
+    ```csv
     | row_id  | material_id  | experiment_id  | structure_id  | reference_type  | solvent | anneal_temp_C  | film_thickness_nm  | orientation_label | notes |
     |---------|--------------|----------------|---------------|-----------------|---------|----------------|--------------------|--------------------------|-------|
-    `
+    ```
 
 
 ## Scripts
@@ -167,6 +172,7 @@ digitize_giwaxs.py
 Helper for standardizing raw CSV exports from WebPlotDigitizer/Engauge.
 
 Usage (examples):
+    
     ```bash
     # 1D linecut
     python scripts/digitize_giwaxs.py 1d \
