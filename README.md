@@ -69,12 +69,13 @@ twinspec-lakehouse/
 curated/materials/materials.csv
 `
 
+```md
 One row per material.
     
-```csv
-| material_id | class | name | subclass | chemical_formula | repeat_unit_smiles | notes |
-|-------------|-------|------|----------|------------------|--------------------|-------|
-```
+    ```csv
+    | material_id | class | name | subclass | chemical_formula | repeat_unit_smiles | notes |
+    |-------------|-------|------|----------|------------------|--------------------|-------|
+    ```
 
 Example:
     ```
@@ -84,8 +85,8 @@ Example:
     | PE            | polymer | Polyethylene | commodity_polymer  |      (CH2)n      |         CC         | Reference semicrystalline polymer |
     | TiO2_anatase  |  oxide  | TiO2 (anatase) | metal_oxide      |                  |                    | Anatase phase for slab film |
     ```
+```
 
-`
 curated/experiments/experiments.csv
 `
 
