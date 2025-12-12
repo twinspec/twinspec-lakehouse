@@ -71,15 +71,14 @@ curated/materials/materials.csv
 
 
 One row per material.
-    
-    - CSV Header: 
         
-        ```csv
-        | material_id | class | name | subclass | chemical_formula | repeat_unit_smiles | notes |
-        |-------------|-------|------|----------|------------------|--------------------|-------|
-        ```
+    ```csv
+    | material_id | class | name | subclass | chemical_formula | repeat_unit_smiles | notes |
+    |-------------|-------|------|----------|------------------|--------------------|-------|
+    ```
 
 Example:
+    
     ```
     | material_id   |  class  |     name     |      subclass      | chemical_formula | repeat_unit_smiles |            notes           |
     |-------------|---------|--------------|--------------------|------------------|--------------------|----------------------------|
