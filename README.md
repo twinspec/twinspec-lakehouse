@@ -73,7 +73,7 @@ One row per material.
     ```md
     | material_id | class | name | subclass | chemical_formula | repeat_unit_smiles | notes |
     |-------------|-------|------|----------|------------------|--------------------|-------|
-    
+    ```
 
 Example:
     ```
