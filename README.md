@@ -82,9 +82,9 @@ Example:
 ```csv
 | material_id   |  class  |     name     |      subclass      | chemical_formula | repeat_unit_smiles |            notes                   |
 |---------------|---------|--------------|--------------------|------------------|--------------------|----------------------------|
-| PNDI2ODT2     | polymer | P(NDI2OD-T2) | conjugated_polymer |                  |     SMILES_HERE    | DA polymer for GIWAXS demo                    |
-| PE            | polymer | Polyethylene | commodity_polymer  |      (CH2)n      |         CC         | Reference semicrystalline polymer |
-| TiO2_anatase  |  oxide  | TiO2 (anatase) | metal_oxide      |                  |                    | Anatase phase for slab film                    |
+| PNDI2ODT2     | polymer | P(NDI2OD-T2)   | conjugated_polymer |                  |     SMILES_HERE    | DA polymer for GIWAXS demo                    |
+| PE            | polymer | Polyethylene   | commodity_polymer  |      (CH2)n      |         CC         | Reference semicrystalline polymer |
+| TiO2_anatase  |  oxide  | TiO2 (anatase) | metal_oxide    |                  |                    | Anatase phase for slab film                    |
 ```
 
 `
@@ -111,7 +111,7 @@ Example:
 ```csv
 |    experiment_id    | material_id | reference_type |  reference_doi    |    solvent    | concentration_mg_ml | casting_method | substrate | anneal_temp_C | anneal_time_min | film_thickness_nm | characterization_type | characterization_metadata_json | peaks_json | orientation_label | giwaxs_1d_path | giwaxs_2d_path | include_in_unity | notes |
 |---------------------|-------------|----------------|-------------------|---------------|---------------------|----------------|-----------|---------------|-----------------|-------------------|-----------------------|--------------------------------|------------|--------------------|----------------|----------------|------------------|-------|
-| PNDI2ODT2_CB_120C   |  PNDI2ODT2  |   literature   | 10.1234/abcd.5678 | chlorobenzene |        10           |    bladecoat   |   SiO2    |      120      |        10       |        85         |         GIWAXS        |  "{""beam_energy_keV"":10.0}"  | "{""q100"":0.30,""q001"":1.76,""d100"":20.9,""d001"":3.57}" | "edge-on" | "Main demo film" | raw/literature/giwaxs_1d/PNDI2ODT2_CB_120C_linecut.csv | raw/literature/giwaxs_2d/PNDI2ODT2_CB_120C_map.csv | 1 |
+| PNDI2ODT2_CB_120C   |  PNDI2ODT2  |   literature   | 10.1234/abcd.5678 | chlorobenzene |        10           |    bladecoat   |   SiO2    |      120      |        10       |        85         |         GIWAXS        |  "{""beam_energy_keV"":10.0}"  | "{""q100"":0.30,""q001"":1.76,""d100"":20.9,""d001"":3.57}" | "edge-on" | 1 | raw/literature/giwaxs_1d/PNDI2ODT2_CB_120C_linecut.csv | raw/literature/giwaxs_2d/PNDI2ODT2_CB_120C_map.csv | "Main demo film" |
 ```
 
 `
