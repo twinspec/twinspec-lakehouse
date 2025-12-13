@@ -80,11 +80,11 @@ One row per material.
 Example:
     
 ```csv
-| material_id   |  class  |     name     |      subclass      | chemical_formula | repeat_unit_smiles |            notes           |
+| material_id   |  class  |     name     |      subclass      | chemical_formula | repeat_unit_smiles |            notes                   |
 |---------------|---------|--------------|--------------------|------------------|--------------------|----------------------------|
-| PNDI2ODT2     | polymer | P(NDI2OD-T2) | conjugated_polymer |                  |     SMILES_HERE    | DA polymer for GIWAXS demo |
+| PNDI2ODT2     | polymer | P(NDI2OD-T2) | conjugated_polymer |                  |     SMILES_HERE    | DA polymer for GIWAXS demo                    |
 | PE            | polymer | Polyethylene | commodity_polymer  |      (CH2)n      |         CC         | Reference semicrystalline polymer |
-| TiO2_anatase  |  oxide  | TiO2 (anatase) | metal_oxide      |                  |                    | Anatase phase for slab film |
+| TiO2_anatase  |  oxide  | TiO2 (anatase) | metal_oxide      |                  |                    | Anatase phase for slab film                    |
 ```
 
 `
@@ -92,21 +92,19 @@ curated/experiments/experiments.csv
 `
 
 One row per film / experiment extracted from literature or generated in-house.
-
-Header:
     
 ```csv
 |    experiment_id    | material_id | reference_type |  reference_doi    |    solvent    | concentration_mg_ml | casting_method | substrate | anneal_temp_C | anneal_time_min | film_thickness_nm | characterization_type | characterization_metadata_json | peaks_json | orientation_label | giwaxs_1d_path | giwaxs_2d_path | include_in_unity | notes |
-|---------------------|-------------|----------------|-------------------|---------------|---------------------|----------------|--------------|---------------|-----------------|-------------------|-----------------------|--------------------------------|------------|--------------------|----------------|----------------|------------------|-------|
+|---------------------|-------------|----------------|-------------------|---------------|---------------------|----------------|------------|---------------|-----------------|-------------------|-----------------------|--------------------------------|------------|--------------------|----------------|----------------|------------------|-------|
 ```
 
-    -   `characterization_type` : GIWAXS, XRD, SAXS, etc
-    -   `characterization_metadata_json` : JSON string for beam energy, incident angle, detector, etc.
-    -   `peaks_json` : JSON string for q-peaks, d-spacings, etc.
-    -   `orientation_label` : e.g. `edge-on`, `face-on`, `mixed`, `textured`, `isotropic`, `unknown`
-    -   `giwaxs_1d_path` : repo-relative path to standardized 1D CSV in `raw/literature/giwaxs_1d/`
-    -   `giwaxs_2d_path` : repo-relative path to standardized 2D CSV in `raw/literature/giwaxs_2d/`
-    -   `include_in_unity` : 1/true to export Unity metadata for this experiment
+- `characterization_type` : GIWAXS, XRD, SAXS, etc
+- `characterization_metadata_json` : JSON string for beam energy, incident angle, detector, etc.
+- `peaks_json` : JSON string for q-peaks, d-spacings, etc.
+- `orientation_label` : e.g. `edge-on`, `face-on`, `mixed`, `textured`, `isotropic`, `unknown`
+- `giwaxs_1d_path` : repo-relative path to standardized 1D CSV in `raw/literature/giwaxs_1d/`
+- `giwaxs_2d_path` : repo-relative path to standardized 2D CSV in `raw/literature/giwaxs_2d/`
+- `include_in_unity` : 1/true to export Unity metadata for this experiment
 
 Example:
     
@@ -124,11 +122,11 @@ One row per geomtry (film segment, slab, etc.) that can be loaded into Unity or 
     
 ```csv
 | structure_id | material_id | reference_type | method | geometry-path | box_size_A | created_at | notes |
-|-------------|-------|------|----------|------------------|--------------------|-------|
+|--------------|-------------|----------------|--------|---------------|------------|------------|-------|
 ```
 
-    -   `geometry_path` : repo-relative path to XYZ/PDB file in `raw/computed/geometry_xyz/`
-    -   `box_size_A` : JSON string for box dimensions, e.g. `{"Lx":80, "Ly":80, "Lz":50}`
+- `geometry_path` : repo-relative path to XYZ/PDB file in `raw/computed/geometry_xyz/`
+- `box_size_A` : JSON string for box dimensions, e.g. `{"Lx":80, "Ly":80, "Lz":50}`
 
 
 `
@@ -173,35 +171,35 @@ Helper for standardizing raw CSV exports from WebPlotDigitizer/Engauge.
 
 Usage (examples):
     
-    ```bash
-    # 1D linecut
-    python scripts/digitize_giwaxs.py 1d \
-    --raw /path/to/WebPlotDigitizer_export.csv \
-    --experiment-id PNDI2ODT2_CB_120C \
-    --linecut-id oop \
-    --direction out_of_plane \
-    --q-units 1/A
+```bash
+# 1D linecut
+python scripts/digitize_giwaxs.py 1d \
+--raw /path/to/WebPlotDigitizer_export.csv \
+--experiment-id PNDI2ODT2_CB_120C \
+--linecut-id oop \
+--direction out_of_plane \
+--q-units 1/A
 
-    # 2D map
-    python scripts/digitize_giwaxs.py 2d \
-    --raw /path/to/map_export.csv \
-    --experiment-id PNDI2ODT2_CB_120C \
-    --map-id full \
-    --geometry qz_qxy
-    ```
+# 2D map
+python scripts/digitize_giwaxs.py 2d \
+--raw /path/to/map_export.csv \
+--experiment-id PNDI2ODT2_CB_120C \
+--map-id full \
+--geometry qz_qxy
+```
 
 Output paths (relative to repo root) are printed and should be pasted into `giwaxs_1d_path` / `giwaxs_2d_path` in `experiments.csv`.
 
 ## Typical Workflow (per paper)
 
-    1. Drop PDF --> `raw/literature/papers/`.
-    2. Crop GIWAXS/XRD figures --> `raw/literature/fig_crops/` (optional).
-    3. Digitize 1D/2D plots --> export raw CSV.
-    4. Run `digitize_giwas.py` to standardize --> files land in `raw/literature/giwaxs_1d/` or `giwaxs_2d/`.
-    5. Create/Update row in `curated/experiments/experiments.csv`.
-    6. (Optional) Add/Update `computed_structures.csv` entries for matching geometries.
-    7. Run `audit_paths.py` to check integrity.
-    8. When ready to visualize in Unity, mark `include_in_unity = 1` and run `generate_unity_metadata.py`
+1. Drop PDF --> `raw/literature/papers/`.
+2. Crop GIWAXS/XRD figures --> `raw/literature/fig_crops/` (optional).
+3. Digitize 1D/2D plots --> export raw CSV.
+4. Run `digitize_giwas.py` to standardize --> files land in `raw/literature/giwaxs_1d/` or `giwaxs_2d/`.
+5. Create/Update row in `curated/experiments/experiments.csv`.
+6. (Optional) Add/Update `computed_structures.csv` entries for matching geometries.
+7. Run `audit_paths.py` to check integrity.
+8. When ready to visualize in Unity, mark `include_in_unity = 1` and run `generate_unity_metadata.py`
 
 
 ## Notes
