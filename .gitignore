@@ -1,15 +1,13 @@
-
-## `.gitignore` for `twinspec-lakehouse`
-
-Use this at the repo root:
-
-```gitignore
-# OS junk
+# ===========================================
+# OS Junk
+# ===========================================
 .DS_Store
 Thumbs.db
 desktop.ini
 
+# ===========================================
 # Python
+# ===========================================
 __pycache__/
 *.py[cod]
 *.pyo
@@ -22,26 +20,66 @@ venv/
 env/
 pip-wheel-metadata/
 
+# ===========================================
 # Jupyter
+# ===========================================
 .ipynb_checkpoints/
 
+# ===========================================
 # VS Code
+# ===========================================
 .vscode/
 .history/
 
-# Logs and temp
+# ===========================================
+# Logs & Temp
+# ===========================================
 *.log
 *.tmp
 *.bak
 *.swp
 *.swo
 
-# Data that should not be versioned (optional; comment out if you want all raw data in git)
-# If some files become huge, consider adding patterns here or using Git LFS instead.
+# ===========================================
+# Lakehouse raw data exclusions
+# Keep: CSV, JSON, descriptors, digitized GIWAXS data
+# Ignore: PDFs, images, raw figure files
+# ===========================================
 
-# Unity metadata output (you might choose to track or ignore these)
-# If you want Unity metadata regenerated from CSVs, ignore them:
-# unity_metadata/*.json
+# Literature PDFs (copyright + large)
+raw/literature/papers/
 
+# Cropped figures & images (not needed in repo)
+raw/literature/fig_crops/
+raw/literature/giwaxs_images/
+raw/literature/figures/
+raw/literature/images/
+raw/literature/imgs/
+
+# Optional: raw digitizer exports (keep only standard CSV)
+raw/literature/raw_digitizer_exports/
+
+# ===========================================
+# Computed data exclusions (optional)
+# Comment out if you want to track geometry XYZ files.
+# ===========================================
+# raw/computed/geometry_xyz/
+
+# ===========================================
+# Unity Generated Files (if Unity project added later)
+# These SHOULD NOT be in Git.
+# ===========================================
+*.meta
+Library/
+Temp/
+Logs/
+Obj/
+Build/
+Builds/
+UserSettings/
+MemoryCaptures/
+
+# ===========================================
 # Misc
+# ===========================================
 *.DS_Store
