@@ -95,7 +95,7 @@ One row per film / experiment extracted from literature or generated in-house.
     
 ```csv
 |    experiment_id    | material_id | reference_type |  reference_doi    |    solvent    | concentration_mg_ml | casting_method | substrate | anneal_temp_C | anneal_time_min | film_thickness_nm | characterization_type | characterization_metadata_json | peaks_json | orientation_label | giwaxs_1d_path | giwaxs_2d_path | include_in_unity | notes |
-|---------------------|-------------|----------------|-------------------|---------------|---------------------|----------------|------------|---------------|-----------------|-------------------|-----------------------|--------------------------------|------------|--------------------|----------------|----------------|------------------|-------|
+|---------------------|-------------|----------------|-------------------|---------------|---------------------|----------------|-----------|---------------|-----------------|-------------------|-----------------------|--------------------------------|------------|--------------------|----------------|----------------|------------------|-------|
 ```
 
 - `characterization_type` : GIWAXS, XRD, SAXS, etc
