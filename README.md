@@ -80,11 +80,11 @@ One row per material.
 Example:
     
 ```csv
-| material_id   |  class  |     name     |      subclass      | chemical_formula | repeat_unit_smiles |            notes                   |
-|---------------|---------|--------------|--------------------|------------------|--------------------|----------------------------|
-| PNDI2ODT2     | polymer | P(NDI2OD-T2)   | conjugated_polymer |                  |     SMILES_HERE    | DA polymer for GIWAXS demo                    |
+| material_id   |  class  |      name      |      subclass      | chemical_formula | repeat_unit_smiles |            notes                    |
+|---------------|---------|----------------|--------------------|------------------|--------------------|--------------------------------|
+| PNDI2ODT2     | polymer | P(NDI2OD-T2)   | conjugated_polymer |                  |     SMILES_HERE    | DA polymer for GIWAXS demo              |
 | PE            | polymer | Polyethylene   | commodity_polymer  |      (CH2)n      |         CC         | Reference semicrystalline polymer |
-| TiO2_anatase  |  oxide  | TiO2 (anatase) | metal_oxide    |                  |                    | Anatase phase for slab film                    |
+| TiO2_anatase  |  oxide  | TiO2 (anatase) | metal_oxide      |                  |                    | Anatase phase for slab film               |
 ```
 
 `
