@@ -12,6 +12,7 @@ GIWAXS_2D_DIR = RAW_LIT / "giwaxs_2d_csv"
 
 
 def rgb_to_intensity(rgb: np.ndarray) -> np.ndarray:
+    """Convert RGB -> single-channel intensity via luminance transform."""
     r = rgb[..., 0].astype(np.float32)
     g = rgb[..., 1].astype(np.float32)
     b = rgb[..., 2].astype(np.float32)
@@ -34,6 +35,18 @@ def digitize_giwaxs_image(
     missing_wedge_fill_strategy: str = "skip",  # "skip" or "nan"
     out_path: Path | None = None,
 ) -> Path:
+    """
+    Digitize a GIWAXS 2D pattern image into a long-form CSV.
+
+    Assumptions:
+      - Image is cropped so that the GIWAXS map fills the frame (axis labels removed).
+      - qz increases from bottom -> top of image.
+      - qxy increases from left -> right of image.
+      - ignore_rgb (default black) is treated as masked (labels, missing wedge if painted black, etc.)
+
+    Output schema:
+      experiment_id,map_id,geometry,qz_units,qxy_units,qz,qxy,intensity
+    """
     image_path = image_path.expanduser().resolve()
     GIWAXS_2D_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -47,7 +60,7 @@ def digitize_giwaxs_image(
         b = int(ignore_border_px)
         if 2 * b >= H or 2 * b >= W:
             raise ValueError(f"ignore_border_px={b} too large for image size {(H, W)}")
-        arr = arr[b:H - b, b:W - b, :]
+        arr = arr[b : H - b, b : W - b, :]
         H, W, _ = arr.shape
 
     crop = arr
@@ -60,38 +73,55 @@ def digitize_giwaxs_image(
     else:
         mask = np.zeros((Hc, Wc), dtype=bool)
 
-    intensity = rgb_to_intensity(crop)
+    intensity = rgb_to_intensity(crop)  # (Hc, Wc)
 
-    # Build coordinate grids
-    y = np.arange(Hc)
-    x = np.arange(Wc)
+    # -------------------------------
+    # FIX: Build full 2D coordinate grids (Hc, Wc)
+    # -------------------------------
+    y = np.arange(Hc, dtype=np.float32)
+    x = np.arange(Wc, dtype=np.float32)
 
-    # qz: bottom -> qz_min, top -> qz_max
+    # 1D axis values
     if Hc == 1:
-        qz_grid = np.full((Hc, Wc), qz_min, dtype=np.float32)
+        qz_vals = np.array([qz_min], dtype=np.float32)
     else:
-        qz_grid = qz_min + (Hc - 1 - y[:, None]) / (Hc - 1) * (qz_max - qz_min)
+        # bottom row -> qz_min, top row -> qz_max
+        qz_vals = qz_min + (Hc - 1 - y) / (Hc - 1) * (qz_max - qz_min)
 
-    # qxy: left -> qxy_min, right -> qxy_max
     if Wc == 1:
-        qxy_grid = np.full((Hc, Wc), qxy_min, dtype=np.float32)
+        qxy_vals = np.array([qxy_min], dtype=np.float32)
     else:
-        qxy_grid = qxy_min + x[None, :] / (Wc - 1) * (qxy_max - qxy_min)
+        # left col -> qxy_min, right col -> qxy_max
+        qxy_vals = qxy_min + x / (Wc - 1) * (qxy_max - qxy_min)
 
+    # Expand to full grids matching image shape
+    qz_grid = np.repeat(qz_vals[:, None], Wc, axis=1)    # (Hc, Wc)
+    qxy_grid = np.repeat(qxy_vals[None, :], Hc, axis=0)  # (Hc, Wc)
+
+    # Safety: all shapes must match
+    if not (qz_grid.shape == qxy_grid.shape == intensity.shape == mask.shape):
+        raise RuntimeError(
+            f"Grid shape mismatch: qz={qz_grid.shape}, qxy={qxy_grid.shape}, "
+            f"I={intensity.shape}, mask={mask.shape}"
+        )
+
+    # Downsample (pixel step)
     step = max(1, int(downsample))
     qz_ds = qz_grid[::step, ::step]
     qxy_ds = qxy_grid[::step, ::step]
     I_ds = intensity[::step, ::step]
     mask_ds = mask[::step, ::step]
 
+    # Flatten
     qz_flat = qz_ds.ravel()
     qxy_flat = qxy_ds.ravel()
     I_flat = I_ds.ravel()
     mask_flat = mask_ds.ravel()
 
+    # Apply mask strategy
     if missing_wedge_fill_strategy == "nan":
         # keep points, but set masked intensities to NaN
-        I_flat = I_flat.astype(np.float32)
+        I_flat = I_flat.astype(np.float32, copy=False)
         I_flat[mask_flat] = np.nan
         keep = np.ones_like(mask_flat, dtype=bool)
     else:
@@ -102,6 +132,7 @@ def digitize_giwaxs_image(
     qxy_flat = qxy_flat[keep]
     I_flat = I_flat[keep]
 
+    # Output location
     if out_path is None:
         out_name = f"{experiment_id}_{map_id}.csv"
         out_path = GIWAXS_2D_DIR / out_name
@@ -109,22 +140,45 @@ def digitize_giwaxs_image(
         out_path = out_path.expanduser().resolve()
         out_path.parent.mkdir(parents=True, exist_ok=True)
 
-    with out_path.open("w", newline="") as f:
+    # Write CSV
+    with out_path.open("w", newline="", encoding="utf-8") as f:
         w = csv.writer(f)
-        w.writerow(["experiment_id", "map_id", "geometry", "qz_units", "qxy_units", "qz", "qxy", "intensity"])
+        w.writerow(
+            ["experiment_id", "map_id", "geometry", "qz_units", "qxy_units", "qz", "qxy", "intensity"]
+        )
         for qz_val, qxy_val, I_val in zip(qz_flat, qxy_flat, I_flat):
-            # write NaN cleanly if present
-            I_str = "" if (isinstance(I_val, float) and np.isnan(I_val)) else f"{float(I_val):.6g}"
-            w.writerow([experiment_id, map_id, geometry, q_units, q_units, f"{float(qz_val):.6g}", f"{float(qxy_val):.6g}", I_str])
+            # NaN -> empty cell
+            if np.isnan(I_val):
+                I_str = ""
+            else:
+                I_str = f"{float(I_val):.6g}"
+            w.writerow(
+                [
+                    experiment_id,
+                    map_id,
+                    geometry,
+                    q_units,
+                    q_units,
+                    f"{float(qz_val):.6g}",
+                    f"{float(qxy_val):.6g}",
+                    I_str,
+                ]
+            )
 
     print(f"[2D image] wrote digitized GIWAXS map to: {out_path.relative_to(REPO_ROOT)}")
     return out_path
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Digitize GIWAXS 2D image using characterization_metadata.json")
-    parser.add_argument("--characterization-json", required=True, help="Path to characterization metadata JSON")
-    parser.add_argument("--no-ignore-black", action="store_true", help="Disable masking of pure black pixels")
+    parser = argparse.ArgumentParser(
+        description="Digitize GIWAXS 2D image using characterization_metadata.json"
+    )
+    parser.add_argument(
+        "--characterization-json", required=True, help="Path to characterization metadata JSON"
+    )
+    parser.add_argument(
+        "--no-ignore-black", action="store_true", help="Disable masking of pure black pixels"
+    )
     args = parser.parse_args()
 
     meta_path = Path(args.characterization_json).expanduser().resolve()
@@ -132,13 +186,18 @@ def main():
         meta = json.load(f)
 
     experiment_id = meta["experiment_id"]
-    characterization_id = meta.get("characterization_id", "")
-    map_id = meta.get("role", "2d_map")  # role is your stable semantic ID
+    map_id = meta.get("role", "2d_map")  # semantic id for this data asset
 
     # Prefer post-crop path if present, else raw crop path
-    image_path = meta.get("image_processing", {}).get("post_crop_path") or meta.get("raw_inputs", {}).get("source_figure_crop_path")
+    image_path = (
+        meta.get("image_processing", {}).get("post_crop_path")
+        or meta.get("raw_inputs", {}).get("source_figure_crop_path")
+    )
     if not image_path:
-        raise ValueError("No image path found in characterization metadata (post_crop_path or source_figure_crop_path).")
+        raise ValueError(
+            "No image path found in characterization metadata "
+            "(image_processing.post_crop_path or raw_inputs.source_figure_crop_path)."
+        )
 
     qmap = meta.get("q_mapping", {})
     qz_min = float(qmap["qz_min"])
