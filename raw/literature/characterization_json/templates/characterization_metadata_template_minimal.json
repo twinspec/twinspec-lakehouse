@@ -1,0 +1,48 @@
+{
+  "characterization_id": "CHARACTERIZATION_ID_HERE",
+  "experiment_id": "EXPERIMENT_ID_HERE",
+
+  "char_type": "GIWAXS",
+  "role": "2d_map",
+
+  "provenance": {
+    "paper_id": "",
+    "reference_doi": "",
+    "figure_id": "",
+    "figure_panel": ""
+  },
+
+  "raw_inputs": {
+    "source_figure_crop_path": ""
+  },
+
+  "q_mapping": {
+    "geometry": "qz_qxy",
+    "qz_min": null,
+    "qz_max": null,
+    "qxy_min": null,
+    "qxy_max": null,
+    "units": "1/A"
+  },
+
+  "masks_and_artifacts": {
+    "missing_wedge_present": null,
+    "colorbar_present_in_crop": null,
+    "axis_labels_present_in_crop": null,
+    "panel_labels_present_in_crop": null
+  },
+
+  "digitization": {
+    "digitizer": "TwinSpec_Auto",
+    "parameters": {
+      "downsample_factor": null,
+      "missing_wedge_fill_strategy": "nan",
+      "use_colorbar_if_present": false
+    },
+    "outputs": {
+      "digitized_2d_csv_path": ""
+    }
+  },
+
+  "notes_freeform": ""
+}

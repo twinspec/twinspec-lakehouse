@@ -1,0 +1,96 @@
+{
+  "characterization_id": "CHARACTERIZATION_ID_HERE",
+  "experiment_id": "EXPERIMENT_ID_HERE",
+
+  "char_type": "GIWAXS",
+  "role": "2d_map",
+  "primary_for_experiment": false,
+
+  "provenance": {
+    "paper_id": "",
+    "reference_doi": "",
+    "figure_id": "",
+    "figure_panel": "",
+    "caption_notes": ""
+  },
+
+  "raw_inputs": {
+    "source_pdf_path": "",
+    "source_figure_crop_path": "",
+    "notes": ""
+  },
+
+  "instrument": {
+    "beamline": "",
+    "facility": "",
+    "detector_type": "",
+    "detector_distance_mm": null,
+    "beam_energy_keV": null,
+    "wavelength_A": null,
+    "incident_angle_deg": null,
+    "exposure_time_s": null,
+    "pixel_size_mm": {
+      "x": null,
+      "y": null
+    },
+    "beam_center_px": {
+      "x": null,
+      "y": null
+    },
+    "notes": ""
+  },
+
+  "q_mapping": {
+    "geometry": "qz_qxy",
+    "qz_min": null,
+    "qz_max": null,
+    "qxy_min": null,
+    "qxy_max": null,
+    "units": "1/A",
+    "notes": ""
+  },
+
+  "masks_and_artifacts": {
+    "missing_wedge_present": false,
+    "beamstop_present": null,
+    "colorbar_present_in_crop": null,
+    "axis_labels_present_in_crop": null,
+    "panel_labels_present_in_crop": null,
+    "mask_strategy": "none",
+    "custom_mask_path": "",
+    "notes": ""
+  },
+
+  "image_processing": {
+    "pre_crop_path": "",
+    "post_crop_path": "",
+    "background_subtracted": false,
+    "normalization_method": "",
+    "downsample_factor": null,
+    "notes": ""
+  },
+
+  "digitization": {
+    "digitizer": "TwinSpec_Auto",
+    "digitizer_version": "0.1",
+    "parameters": {
+      "assume_linear_colormap": true,
+      "colormap_name_if_known": "",
+      "use_colorbar_if_present": false,
+      "missing_wedge_fill_strategy": "nan",
+      "ignore_border_px": 0
+    },
+    "outputs": {
+      "digitized_2d_csv_path": "",
+      "digitized_1d_csv_paths": []
+    }
+  },
+
+  "derived_summary": {
+    "orientation_label": "",
+    "peaks_json": {},
+    "notes": ""
+  },
+
+  "notes_freeform": ""
+}

@@ -1,0 +1,44 @@
+{
+  "experiment_id": "EXPERIMENT_ID_HERE",
+  "paper_id": "MATERIAL_FirstAuthorYear_journalSlug",
+  "material_id": "",
+  "experiment_family_id": "",
+
+  "solution": {
+    "concentration_mg_ml": null,
+    "solvent": "",
+    "solvent_mixture": "",
+    "additives": ""
+  },
+
+  "substrate": {
+    "material": "",
+    "treatment": "",
+    "treatment_time_minute": null
+  },
+
+  "deposition": {
+    "casting_method": "",
+    "casting_parameters": {}
+  },
+
+  "annealing": {
+    "performed": null,
+    "anneal_temp_C": null,
+    "anneal_time_minute": null,
+    "ramp_rate_C_per_minute": {
+      "min": null,
+      "max": null
+    },
+    "hold_time_reported": null,
+    "atmosphere": ""
+  },
+
+  "film": {
+    "thickness_min_nm": null,
+    "thickness_max_nm": null,
+    "thickness_nominal_nm": null
+  },
+
+  "notes_freeform": ""
+}

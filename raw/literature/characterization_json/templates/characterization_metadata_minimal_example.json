@@ -1,0 +1,48 @@
+{
+  "characterization_id": "PNDI2ODT2_Tang2022_CB_35C_65nm_spincoat_GIWAXS_2d_map",
+  "experiment_id": "PNDI2ODT2_Tang2022_CB_35C_65nm_spincoat",
+
+  "char_type": "GIWAXS",
+  "role": "2d_map",
+
+  "provenance": {
+    "paper_id": "PNDI2ODT2_Tang2022_macromolecules",
+    "reference_doi": "10.1021/acs.macromol.2c01025",
+    "figure_id": "figX",
+    "figure_panel": "a"
+  },
+
+  "raw_inputs": {
+    "source_figure_crop_path": "raw/literature/fig_crops/PNDI2ODT2_Tang2022_macromolecules_figX_panelA_giwaxs2d.png"
+  },
+
+  "q_mapping": {
+    "geometry": "qz_qxy",
+    "qz_min": 0,
+    "qz_max": 17,
+    "qxy_min": -2,
+    "qxy_max": 2,
+    "units": "1/nm"
+  },
+
+  "masks_and_artifacts": {
+    "missing_wedge_present": true,
+    "colorbar_present_in_crop": true,
+    "axis_labels_present_in_crop": true,
+    "panel_labels_present_in_crop": true
+  },
+
+  "digitization": {
+    "digitizer": "TwinSpec_Auto",
+    "parameters": {
+      "downsample_factor": 2,
+      "missing_wedge_fill_strategy": "nan",
+      "use_colorbar_if_present": false
+    },
+    "outputs": {
+      "digitized_2d_csv_path": "raw/literature/giwaxs_2d_csv/PNDI2ODT2_Tang2022_CB_35C_65nm_spincoat_full.csv"
+    }
+  },
+
+  "notes_freeform": "Crop still contains colorbar/labels; digitizer configured to ignore colorbar. Missing wedge retained and filled with NaN."
+}

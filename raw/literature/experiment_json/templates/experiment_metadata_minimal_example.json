@@ -1,0 +1,44 @@
+{
+  "experiment_id": "PNDI2ODT2_Tang2022_CB_35C_65nm_spincoat",
+  "paper_id": "PNDI2ODT2_Tang2022_macromolecules",
+  "material_id": "PNDI2ODT2",
+  "experiment_family_id": "PNDI2ODT2_CB_35C",
+
+  "solution": {
+    "concentration_mg_ml": 8,
+    "solvent": "chlorobenzene",
+    "solvent_mixture": "",
+    "additives": ""
+  },
+
+  "substrate": {
+    "material": "SiO2",
+    "treatment": "oxygen_plasma",
+    "treatment_time_minute": 10
+  },
+
+  "deposition": {
+    "casting_method": "spincoat",
+    "casting_parameters": {}
+  },
+
+  "annealing": {
+    "performed": true,
+    "anneal_temp_C": 35,
+    "anneal_time_minute": null,
+    "ramp_rate_C_per_minute": {
+      "min": 1,
+      "max": 2
+    },
+    "hold_time_reported": false,
+    "atmosphere": ""
+  },
+
+  "film": {
+    "thickness_min_nm": 50,
+    "thickness_max_nm": 80,
+    "thickness_nominal_nm": 65
+  },
+
+  "notes_freeform": "Anneal ramp rate reported (1–2 C/min). Hold/dwell time not reported; anneal_time_minute left null intentionally."
+}

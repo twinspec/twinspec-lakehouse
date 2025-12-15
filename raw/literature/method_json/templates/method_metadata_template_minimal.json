@@ -1,0 +1,31 @@
+{
+  "paper_id": "MATERIAL_FirstAuthorYear_journalSlug",
+  "doi": "",
+  "title": "",
+  "journal": "",
+  "year": null,
+
+  "materials": [
+    {
+      "material_id": "",
+      "name": "",
+      "class": "",
+      "subclass": "",
+      "role_in_stack": "active_layer",
+      "formula_or_sequence": "",
+      "repeat_unit_smiles": "",
+      "notes": ""
+    }
+  ],
+
+  "figures_inventory": [
+    {
+      "figure_id": "figX",
+      "type": "GIWAXS_2D",
+      "crop_path": "",
+      "notes": ""
+    }
+  ],
+
+  "notes_freeform": ""
+}

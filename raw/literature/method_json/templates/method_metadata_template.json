@@ -1,0 +1,144 @@
+{
+  "paper_id": "MATERIAL_FirstAuthorYear_journalSlug",
+  "doi": "",
+  "title": "",
+  "journal": "",
+  "journal_slug": "",
+  "year": null,
+
+  "citation": {
+    "first_author": "",
+    "authors": [],
+    "volume": "",
+    "issue": "",
+    "pages": "",
+    "publisher": "",
+    "url": ""
+  },
+
+  "materials": [
+    {
+      "material_id": "",
+      "name": "",
+      "class": "",
+      "subclass": "",
+      "role_in_stack": "active_layer",
+      "formula_or_sequence": "",
+      "repeat_unit_smiles": "",
+      "notes": "",
+
+      "classification": {
+        "oxide_classification": {
+          "oxide_type": "",
+          "cation": "",
+          "anion": "",
+          "stoichiometry": ""
+        },
+        "perovskite_classification": {
+          "perovskite_type": "",
+          "a_site": "",
+          "b_site": "",
+          "x_site": "",
+          "n_layer": null
+        },
+        "mof_classification": {
+          "node_metal": "",
+          "linker": "",
+          "topology": "",
+          "notes": ""
+        },
+        "biomaterial_classification": {
+          "biomaterial_type": "",
+          "monomer_or_repeat_unit": "",
+          "notes": ""
+        }
+      }
+    }
+  ],
+
+  "paper_level_method_notes": {
+    "scope": "This file stores paper-level details. Film-specific variations belong in experiment_json.",
+    "common_processing": {
+      "solvents_reported": [],
+      "solvent_mixtures_reported": [],
+      "additives_reported": [],
+      "substrates_reported": [],
+      "deposition_methods_reported": [],
+      "post_treatments_reported": []
+    }
+  },
+
+  "typical_sample_preparation": {
+    "solution": {
+      "concentration_mg_ml": null,
+      "solvent": "",
+      "solvent_mixture": "",
+      "additives": "",
+      "filtration": {
+        "filtered": null,
+        "pore_size_um": null,
+        "notes": ""
+      },
+      "notes": ""
+    },
+    "substrate": {
+      "material": "",
+      "treatment": "",
+      "treatment_time_minute": null,
+      "notes": ""
+    }
+  },
+
+  "typical_film_deposition": {
+    "casting_method": "",
+    "casting_parameters": {
+      "spin_speed_rpm": null,
+      "spin_time_s": null,
+      "blade_speed_mm_s": null,
+      "solution_volume_uL": null,
+      "substrate_temperature_C": null
+    },
+    "atmosphere": "",
+    "notes": ""
+  },
+
+  "typical_post_treatment": {
+    "anneal": null,
+    "anneal_temp_C": null,
+    "anneal_time_minute": null,
+    "anneal_atmosphere": "",
+    "ramp_rate_C_per_minute": {
+      "min": null,
+      "max": null,
+      "nominal": null
+    },
+    "notes": ""
+  },
+
+  "typical_characterization_setup": {
+    "GIWAXS": {
+      "beam_energy_keV": null,
+      "wavelength_A": null,
+      "incident_angle_deg": null,
+      "geometry_mode": "grazing_incidence",
+      "detector_distance_mm": null,
+      "detector_type": "",
+      "beamline": "",
+      "exposure_time_s": null,
+      "notes": ""
+    }
+  },
+
+  "figures_inventory": [
+    {
+      "figure_id": "figX",
+      "figure_label": "",
+      "type": "GIWAXS_2D",
+      "caption_notes": "",
+      "crop_path": "",
+      "notes": ""
+    }
+  ],
+
+  "notes_freeform": ""
+}

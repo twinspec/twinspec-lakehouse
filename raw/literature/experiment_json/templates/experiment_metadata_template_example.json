@@ -1,0 +1,79 @@
+{
+  "experiment_id": "PNDI2ODT2_Tang2022_CB_35C_65nm_spincoat",
+  "paper_id": "PNDI2ODT2_Tang2022_macromolecules",
+  "material_id": "PNDI2ODT2",
+  "experiment_family_id": "PNDI2ODT2_CB_35C",
+
+  "scope_notes": "This file stores film/sample-specific conditions for one experiment_id.",
+
+  "solution": {
+    "concentration_mg_ml": 8,
+    "solvent": "chlorobenzene",
+    "solvent_mixture": "",
+    "additives": "",
+    "filtration": {
+      "filtered": null,
+      "pore_size_um": null,
+      "notes": "Not reported."
+    },
+    "notes": ""
+  },
+
+  "substrate": {
+    "material": "SiO2",
+    "treatment": "oxygen_plasma",
+    "treatment_time_minute": 10,
+    "notes": ""
+  },
+
+  "deposition": {
+    "casting_method": "spincoat",
+    "casting_parameters": {
+      "spin_speed_rpm": null,
+      "spin_time_s": null,
+      "blade_speed_mm_s": null,
+      "solution_volume_uL": null,
+      "substrate_temperature_C": null
+    },
+    "atmosphere": "",
+    "notes": "Spin parameters not extracted yet."
+  },
+
+  "annealing": {
+    "performed": true,
+    "anneal_temp_C": 35,
+    "anneal_time_minute": null,
+
+    "hold_time_reported": false,
+
+    "ramp_rate_C_per_minute": {
+      "min": 1,
+      "max": 2,
+      "nominal": null
+    },
+
+    "atmosphere": "",
+    "notes": "Anneal time not reported; ramp rate reported as a range."
+  },
+
+  "film": {
+    "thickness_min_nm": 50,
+    "thickness_max_nm": 80,
+    "thickness_nominal_nm": 65,
+    "notes": "Thickness reported as a range; nominal used for naming convenience."
+  },
+
+  "paper_interpretation_notes": {
+    "what_was_reported": "Anneal ramp rate reported (1–2 C/min). Film thickness reported as a range (50–80 nm).",
+    "assumptions_or_inferences": "No dwell/hold time given, so anneal_time_minute left null. Nominal thickness chosen as midpoint for ID readability only.",
+    "missing_info": ["spin_speed_rpm", "spin_time_s", "anneal_time_minute", "anneal_atmosphere"]
+  },
+
+  "links": {
+    "related_characterization_ids": [
+      "PNDI2ODT2_Tang2022_CB_35C_65nm_spincoat_GIWAXS_2d_map"
+    ]
+  },
+
+  "notes_freeform": ""
+}

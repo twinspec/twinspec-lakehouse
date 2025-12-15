@@ -1,0 +1,144 @@
+{
+  "paper_id": "PNDI2ODT2_Tang2022_macromolecules",
+  "doi": "10.1021/acs.macromol.2c01025",
+  "title": "TITLE_FROM_PAPER_HERE",
+  "journal": "Macromolecules",
+  "journal_slug": "macromolecules",
+  "year": 2022,
+
+  "citation": {
+    "first_author": "Tang",
+    "authors": ["Tang", "COAUTHOR_1", "COAUTHOR_2"],
+    "volume": "",
+    "issue": "",
+    "pages": "",
+    "publisher": "American Chemical Society",
+    "url": "https://doi.org/10.1021/acs.macromol.2c01025"
+  },
+
+  "materials": [
+    {
+      "material_id": "PNDI2ODT2",
+      "name": "P(NDI2OD-T2)",
+      "class": "polymer",
+      "subclass": "conjugated_polymer",
+      "role_in_stack": "active_layer",
+      "formula_or_sequence": "",
+      "repeat_unit_smiles": "SMILES_HERE",
+      "notes": "Conjugated donor–acceptor polymer used as the thin-film active layer for GIWAXS.",
+
+      "classification": {
+        "oxide_classification": {
+          "oxide_type": "",
+          "cation": "",
+          "anion": "",
+          "stoichiometry": ""
+        },
+        "perovskite_classification": {
+          "perovskite_type": "",
+          "a_site": "",
+          "b_site": "",
+          "x_site": "",
+          "n_layer": null
+        },
+        "mof_classification": {
+          "node_metal": "",
+          "linker": "",
+          "topology": "",
+          "notes": ""
+        },
+        "biomaterial_classification": {
+          "biomaterial_type": "",
+          "monomer_or_repeat_unit": "",
+          "notes": ""
+        }
+      }
+    }
+  ],
+
+  "paper_level_method_notes": {
+    "scope": "This file stores paper-level details. Film-specific variations belong in experiment_json.",
+    "common_processing": {
+      "solvents_reported": ["chlorobenzene"],
+      "solvent_mixtures_reported": [],
+      "additives_reported": [],
+      "substrates_reported": ["SiO2"],
+      "deposition_methods_reported": ["spincoat"],
+      "post_treatments_reported": ["thermal_anneal"]
+    }
+  },
+
+  "typical_sample_preparation": {
+    "solution": {
+      "concentration_mg_ml": 8,
+      "solvent": "chlorobenzene",
+      "solvent_mixture": "",
+      "additives": "",
+      "filtration": {
+        "filtered": null,
+        "pore_size_um": null,
+        "notes": "Not reported."
+      },
+      "notes": ""
+    },
+    "substrate": {
+      "material": "SiO2",
+      "treatment": "oxygen_plasma",
+      "treatment_time_minute": 10,
+      "notes": "Example treatment time; replace with paper value if reported."
+    }
+  },
+
+  "typical_film_deposition": {
+    "casting_method": "spincoat",
+    "casting_parameters": {
+      "spin_speed_rpm": null,
+      "spin_time_s": null,
+      "blade_speed_mm_s": null,
+      "solution_volume_uL": null,
+      "substrate_temperature_C": null
+    },
+    "atmosphere": "",
+    "notes": "Spin parameters not entered here unless they are common defaults for the paper."
+  },
+
+  "typical_post_treatment": {
+    "anneal": true,
+    "anneal_temp_C": 35,
+    "anneal_time_minute": null,
+    "anneal_atmosphere": "",
+    "ramp_rate_C_per_minute": {
+      "min": 1,
+      "max": 2,
+      "nominal": null
+    },
+    "notes": "Paper reports ramp rate range; hold/dwell time not reported."
+  },
+
+  "typical_characterization_setup": {
+    "GIWAXS": {
+      "beam_energy_keV": null,
+      "wavelength_A": null,
+      "incident_angle_deg": null,
+      "geometry_mode": "grazing_incidence",
+      "detector_distance_mm": null,
+      "detector_type": "",
+      "beamline": "",
+      "exposure_time_s": null,
+      "notes": "Fill with actual instrument settings if reported."
+    }
+  },
+
+  "figures_inventory": [
+    {
+      "figure_id": "figX",
+      "figure_label": "a",
+      "type": "GIWAXS_2D",
+      "caption_notes": "2D GIWAXS pattern shown with colorbar and panel label.",
+      "crop_path": "raw/literature/fig_crops/PNDI2ODT2_Tang2022_macromolecules_figX_panelA_giwaxs2d.png",
+      "notes": "Crop may include axis labels and missing wedge; digitizer must mask/ignore artifacts."
+    }
+  ],
+
+  "notes_freeform": "Replace placeholder title/authors/volume/pages after extracting from paper."
+}

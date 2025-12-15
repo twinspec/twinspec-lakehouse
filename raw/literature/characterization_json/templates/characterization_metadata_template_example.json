@@ -1,0 +1,101 @@
+{
+  "characterization_id": "PNDI2ODT2_Tang2022_CB_35C_65nm_spincoat_GIWAXS_2d_map",
+  "experiment_id": "PNDI2ODT2_Tang2022_CB_35C_65nm_spincoat",
+
+  "char_type": "GIWAXS",
+  "role": "2d_map",
+  "primary_for_experiment": true,
+
+  "provenance": {
+    "paper_id": "PNDI2ODT2_Tang2022_macromolecules",
+    "reference_doi": "10.1021/acs.macromol.2c01025",
+    "figure_id": "figX",
+    "figure_panel": "a",
+    "caption_notes": "2D GIWAXS pattern (panel a)."
+  },
+
+  "raw_inputs": {
+    "source_pdf_path": "raw/literature/papers/PNDI2ODT2_Tang2022_macromolecules.pdf",
+    "source_figure_crop_path": "raw/literature/fig_crops/PNDI2ODT2_Tang2022_macromolecules_figX_panelA_giwaxs2d.png",
+    "notes": "Crop includes panel label and colorbar."
+  },
+
+  "instrument": {
+    "beamline": "",
+    "facility": "",
+    "detector_type": "",
+    "detector_distance_mm": null,
+    "beam_energy_keV": null,
+    "wavelength_A": null,
+    "incident_angle_deg": null,
+    "exposure_time_s": null,
+    "pixel_size_mm": {
+      "x": null,
+      "y": null
+    },
+    "beam_center_px": {
+      "x": null,
+      "y": null
+    },
+    "notes": "Instrument parameters not extracted yet; set if reported."
+  },
+
+  "q_mapping": {
+    "geometry": "qz_qxy",
+    "qz_min": 0,
+    "qz_max": 17,
+    "qxy_min": -2,
+    "qxy_max": 2,
+    "units": "1/nm",
+    "notes": "q-range set from axis labels on figure; replace with calibrated values if available."
+  },
+
+  "masks_and_artifacts": {
+    "missing_wedge_present": true,
+    "beamstop_present": null,
+    "colorbar_present_in_crop": true,
+    "axis_labels_present_in_crop": true,
+    "panel_labels_present_in_crop": true,
+    "mask_strategy": "none",
+    "custom_mask_path": "",
+    "notes": "Missing wedge is present (no data). Crop contains colorbar and panel label; digitizer should ignore those regions."
+  },
+
+  "image_processing": {
+    "pre_crop_path": "",
+    "post_crop_path": "raw/literature/fig_crops/PNDI2ODT2_Tang2022_macromolecules_figX_panelA_giwaxs2d.png",
+    "background_subtracted": false,
+    "normalization_method": "",
+    "downsample_factor": 2,
+    "notes": ""
+  },
+
+  "digitization": {
+    "digitizer": "TwinSpec_Auto",
+    "digitizer_version": "0.1",
+    "parameters": {
+      "assume_linear_colormap": true,
+      "colormap_name_if_known": "",
+      "use_colorbar_if_present": false,
+      "missing_wedge_fill_strategy": "nan",
+      "ignore_border_px": 0
+    },
+    "outputs": {
+      "digitized_2d_csv_path": "raw/literature/giwaxs_2d_csv/PNDI2ODT2_Tang2022_CB_35C_65nm_spincoat_full.csv",
+      "digitized_1d_csv_paths": []
+    }
+  },
+
+  "derived_summary": {
+    "orientation_label": "edge-on",
+    "peaks_json": {
+      "q100": null,
+      "q010": null,
+      "q001": null,
+      "notes": "Populate peak positions only if extracted or digitized."
+    },
+    "notes": ""
+  },
+
+  "notes_freeform": ""
+}
