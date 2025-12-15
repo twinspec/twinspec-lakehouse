@@ -1,0 +1,102 @@
+{
+  "characterization_id": "PNDI2ODT2_Tang2022_CB_35C_65nm_spincoat_GIWAXS_2d_map",
+  "experiment_id": "PNDI2ODT2_Tang2022_CB_35C_65nm_spincoat",
+
+  "char_type": "GIWAXS",
+  "role": "2d_map",
+  "primary_for_experiment": false,
+
+  "provenance": {
+    "paper_id": "PNDI2ODT2_Tang2022_macromolecules",
+    "reference_doi": "10.1021/acs.macromol.2c01025",
+    "figure_id": "PNDI2ODT2_CB_35C_full_PNDI2ODT2_2022_ljtang",
+    "figure_panel": "",
+    "caption_notes": ""
+  },
+
+  "raw_inputs": {
+    "source_pdf_path": "raw/literature/papers/PNDI2ODT2_Tang2022_macromolecules.pdf",
+    "source_figure_crop_path": "raw/literature/giwaxs_2d_unedited/PNDI2ODT2_CB_35C_full_PNDI2ODT2_2022_ljtang.png",
+    "notes": ""
+  },
+
+  "instrument": {
+    "beamline": "",
+    "facility": "Australian Synchrotron",
+    "detector_type": "2d",
+    "detector_distance_mm": 747,
+    "beam_energy_keV": 15,
+    "wavelength_A": 0.827,
+    "incident_angle_deg": 0.095,
+    "exposure_time_s": 1,
+    "pixel_size_mm": {
+      "x": 0.175,
+      "y": 0.175
+    },
+    "beam_center_px": {
+      "x": null,
+      "y": null
+    },
+    "notes": "Incident angle reported as a range (0.07–0.12 deg); nominal stored in incident_angle_deg. Put range in provenance/caption notes or notes_freeform if needed."
+  },
+
+  "q_mapping": {
+    "geometry": "qz_qxy",
+    "qz_min": 0,
+    "qz_max": 2,
+    "qxy_min": 0,
+    "qxy_max": 2,
+    "units": "1/nm",
+    "notes": ""
+  },
+
+  "masks_and_artifacts": {
+    "missing_wedge_present": true,
+    "beamstop_present": null,
+    "colorbar_present_in_crop": false,
+    "axis_labels_present_in_crop": false,
+    "panel_labels_present_in_crop": false,
+    "mask_strategy": "none",
+    "custom_mask_path": "",
+    "notes": ""
+  },
+
+  "image_processing": {
+    "pre_crop_path": "raw/literature/giwaxs_2d_unedited/PNDI2ODT2_CB_35C_full_PNDI2ODT2_2022_ljtang.png",
+    "post_crop_path": "raw/literature/giwaxs_2d_images/no_axes/PNDI2ODT2_CB_35C_full_PNDI2ODT2_2022_ljtang.png",
+    "background_subtracted": false,
+    "normalization_method": "",
+    "downsample_factor": 2,
+    "notes": ""
+  },
+
+  "digitization": {
+    "digitizer": "TwinSpec_Auto",
+    "digitizer_version": "0.1",
+    "parameters": {
+      "assume_linear_colormap": true,
+      "colormap_name_if_known": "",
+      "use_colorbar_if_present": false,
+      "missing_wedge_fill_strategy": "nan",
+      "ignore_border_px": 0
+    },
+    "outputs": {
+      "digitized_2d_csv_path": "",
+      "digitized_1d_csv_paths": []
+    }
+  },
+
+  "derived_summary": {
+    "orientation_label": "face-on",
+    "peaks_json": {
+      "q100": 0.255,
+      "q010": 1.604,
+      "q001": 0.4601,
+      "q002": 0.8955,
+      "q004": 1.7728
+    },
+    "notes": "If storing d-spacings, either compute them from q consistently or add a separate derived_summary field for d-spacings (not part of the template)."
+  },
+
+  "notes_freeform": "Incident angle range was 0.07–0.12 deg (nominal 0.095 deg)."
+}

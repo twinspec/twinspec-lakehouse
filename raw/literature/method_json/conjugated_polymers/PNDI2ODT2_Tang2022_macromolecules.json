@@ -1,0 +1,151 @@
+{
+  "paper_id": "PNDI2ODT2_Tang2022_macromolecules",
+  "doi": "10.1021/acs.macromol.2c01025",
+  "title": "Capturing the Phase Transformation and Thermal Behavior of P(NDI2OD-T2) with In Situ Grazing Incidence WAXS",
+  "journal": "Macromolecules",
+  "journal_slug": "macromolecules",
+  "year": 2022,
+
+  "citation": {
+    "first_author": "Tang",
+    "authors": ["Lingjing Tang", "Christopher Robert McNeill"],
+    "volume": "55",
+    "issue": "16",
+    "pages": "7273-7283",
+    "publisher": "American Chemical Society",
+    "url": "https://doi.org/10.1021/acs.macromol.2c01025"
+  },
+
+  "materials": [
+    {
+      "material_id": "PNDI2ODT2",
+      "name": "P(NDI2OD-T2)",
+      "class": "polymer",
+      "subclass": "conjugated_polymer",
+      "role_in_stack": "active_layer",
+      "formula_or_sequence": "C62H88N2O4S2",
+      "repeat_unit_smiles": "",
+      "notes": "Poly{[N,N′-bis(2-octyldodecyl)-naphthalene-1,8-bis(dicarboximide)-2,6-diyl]-alt-5,5′-(2,2′-bithiophene)}",
+      
+      "polymer_properties": {
+        "mn_kDa": 64,
+        "mw_kDa": null,
+        "dispersity_D": 2.07,
+        "material_source": "Raynery Tek"
+        },
+
+      "classification": {
+        "oxide_classification": {
+          "oxide_type": "",
+          "cation": "",
+          "anion": "",
+          "stoichiometry": ""
+        },
+        "perovskite_classification": {
+          "perovskite_type": "",
+          "a_site": "",
+          "b_site": "",
+          "x_site": "",
+          "n_layer": null
+        },
+        "mof_classification": {
+          "node_metal": "",
+          "linker": "",
+          "topology": "",
+          "notes": ""
+        },
+        "biomaterial_classification": {
+          "biomaterial_type": "",
+          "monomer_or_repeat_unit": "",
+          "notes": ""
+        }
+      }
+    }
+  ],
+
+  "paper_level_method_notes": {
+    "scope": "This file stores paper-level details. Film-specific variations belong in experiment_json.",
+    "common_processing": {
+      "solvents_reported": ["chlorobenzene"],
+      "solvent_mixtures_reported": [],
+      "additives_reported": [],
+      "substrates_reported": ["SiO2"],
+      "deposition_methods_reported": ["spincoat"],
+      "post_treatments_reported": ["thermal_anneal"]
+    }
+  },
+
+  "typical_sample_preparation": {
+    "solution": {
+      "concentration_mg_ml": 8,
+      "solvent": "chlorobenzene",
+      "solvent_mixture": "",
+      "additives": "",
+      "filtration": {
+        "filtered": null,
+        "pore_size_um": null,
+        "notes": ""
+      },
+      "notes": ""
+    },
+    "substrate": {
+      "material": "SiO2",
+      "treatment": "oxygen_plasma",
+      "treatment_time_minute": 10,
+      "notes": "Bare silicon substrates cleaned in acetone then 2-propanol (ultrasonic bath) then oxygen plasma."
+    }
+  },
+
+  "typical_film_deposition": {
+    "casting_method": "spincoat",
+    "casting_parameters": {
+      "spin_speed_rpm": 1000,
+      "spin_time_s": null,
+      "blade_speed_mm_s": null,
+      "solution_volume_uL": null,
+      "substrate_temperature_C": null
+    },
+    "atmosphere": "",
+    "notes": "If substrate temperature is described as room temperature, keep substrate_temperature_C null and note it here."
+  },
+
+  "typical_post_treatment": {
+    "anneal": true,
+    "anneal_temp_C": 35,
+    "anneal_time_minute": null,
+    "anneal_atmosphere": "nitrogen",
+    "ramp_rate_C_per_minute": {
+      "min": 1,
+      "max": 2,
+      "nominal": 1.5
+    },
+    "notes": "Paper describes ramp rate; if dwell/hold time varies by experiment, store dwell in experiment_json."
+  },
+
+  "typical_characterization_setup": {
+    "GIWAXS": {
+      "beam_energy_keV": 15,
+      "wavelength_A": 0.827,
+      "incident_angle_deg": null,
+      "geometry_mode": "grazing_incidence",
+      "detector_distance_mm": 747,
+      "detector_type": "2d",
+      "beamline": "SAXS/WAXS Beamline at Australian Synchrotron",
+      "exposure_time_s": 1,
+      "notes": "Incident angle reported as range (0.07–0.12 deg); store per dataset in characterization_metadata."
+    }
+  },
+
+  "figures_inventory": [
+    {
+      "figure_id": "PNDI2ODT2_CB_35C_full_PNDI2ODT2_2022_ljtang",
+      "figure_label": "",
+      "type": "GIWAXS_2D",
+      "caption_notes": "",
+      "crop_path": "raw/literature/giwaxs_2d_images/no_axes/PNDI2ODT2_CB_35C_full_PNDI2ODT2_2022_ljtang.png",
+      "notes": ""
+    }
+  ],
+
+  "notes_freeform": ""
+}

@@ -1,0 +1,76 @@
+{
+  "experiment_id": "PNDI2ODT2_Tang2022_CB_35C_65nm_spincoat",
+  "paper_id": "PNDI2ODT2_Tang2022_macromolecules",
+  "material_id": "PNDI2ODT2",
+  "experiment_family_id": "PNDI2ODT2_CB_35C",
+
+  "scope_notes": "This file stores film/sample-specific conditions for one experiment_id.",
+
+  "solution": {
+    "concentration_mg_ml": 8,
+    "solvent": "chlorobenzene",
+    "solvent_mixture": "",
+    "additives": "",
+    "filtration": {
+      "filtered": null,
+      "pore_size_um": null,
+      "notes": ""
+    },
+    "notes": ""
+  },
+
+  "substrate": {
+    "material": "SiO2",
+    "treatment": "oxygen_plasma",
+    "treatment_time_minute": 10,
+    "notes": "Bare silicon substrates were cleaned in acetone then 2-propanol (ultrasonic bath, 10 min) followed by oxygen plasma (10 min)."
+  },
+
+  "deposition": {
+    "casting_method": "spincoat",
+    "casting_parameters": {
+      "spin_speed_rpm": 1000,
+      "spin_time_s": null,
+      "blade_speed_mm_s": null,
+      "solution_volume_uL": null,
+      "substrate_temperature_C": null
+    },
+    "atmosphere": "",
+    "notes": "Substrate temperature described as room temperature (not numeric); stored in notes."
+  },
+
+  "annealing": {
+    "performed": true,
+    "anneal_temp_C": 35,
+    "anneal_time_minute": 10,
+    "hold_time_reported": true,
+    "ramp_rate_C_per_minute": {
+      "min": 1,
+      "max": 2,
+      "nominal": 1.5
+    },
+    "atmosphere": "nitrogen",
+    "notes": ""
+  },
+
+  "film": {
+    "thickness_min_nm": 50,
+    "thickness_max_nm": 80,
+    "thickness_nominal_nm": 65,
+    "notes": "For films spin-cast at 1000 rpm, thickness ranged from 50–80 nm."
+  },
+
+  "paper_interpretation_notes": {
+    "what_was_reported": "Spincoat at 1000 rpm produced 50–80 nm films. Anneal ramp rate reported as 1–2 C/min. Nitrogen flow during measurement.",
+    "assumptions_or_inferences": "Nominal thickness set to midpoint for ID readability only. Substrate temperature treated as room temperature and stored in notes.",
+    "missing_info": ["spin_time_s", "solution_volume_uL", "substrate_temperature_C"]
+  },
+
+  "links": {
+    "related_characterization_ids": [
+      "PNDI2ODT2_Tang2022_CB_35C_65nm_spincoat_GIWAXS_2d_map"
+    ]
+  },
+
+  "notes_freeform": ""
+}
