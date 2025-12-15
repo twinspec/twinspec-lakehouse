@@ -79,7 +79,7 @@ def generate_unity_metadata():
             material_subclass = mat.get("subclass", "")
 
             # Parse JSON-ish fields
-            char_metadata = parse_json_field(row.get("char_metadata_json", ""))
+            characterization_metadata = parse_json_field(row.get("characterization_metadata_json", ""))
             peaks = parse_json_field(row.get("peaks_json", ""))
 
             # Build metadata object for Unity
@@ -89,9 +89,9 @@ def generate_unity_metadata():
                 "material_name": material_name,
                 "material_class": material_class,
                 "material_subclass": material_subclass,
-                "source": {
-                    "type": row.get("source_type", ""),
-                    "doi": row.get("source_doi", ""),
+                "reference": {
+                    "type": row.get("reference_type", ""),
+                    "doi": row.get("reference_doi", ""),
                 },
                 "processing": {
                     "solvent": row.get("solvent", ""),
@@ -103,8 +103,8 @@ def generate_unity_metadata():
                     "film_thickness_nm": _maybe_float(row.get("film_thickness_nm")),
                 },
                 "characterization": {
-                    "char_type": row.get("char_type", ""),
-                    "metadata": char_metadata,
+                    "characterization_type": row.get("characterization_type", ""),
+                    "metadata": characterization_metadata,
                     "peaks": peaks,
                     "orientation_label": row.get("orientation_label", ""),
                 },

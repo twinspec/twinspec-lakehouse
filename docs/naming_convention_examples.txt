@@ -1,0 +1,76 @@
+TwinSpec Naming Convention Examples
+==================================
+
+
+------------------------------------------------------------
+Material IDs
+------------------------------------------------------------
+
+PNDI2ODT2
+PE
+ZnO
+SnO2
+ZIF8
+Cellulose
+
+
+------------------------------------------------------------
+Paper IDs
+------------------------------------------------------------
+
+PE_Kim2019_afm
+Cellulose_Smith2020_nmat
+ZIF8_Garcia2022_jacs
+
+
+------------------------------------------------------------
+Experiment Family IDs
+------------------------------------------------------------
+
+PNDI2ODT2_CB_120C
+PNDI2ODT2_CB_35C
+PE_Xyl_RT
+ZnO_SolGel_300C
+
+
+------------------------------------------------------------
+Experiment IDs
+------------------------------------------------------------
+
+PNDI2ODT2_Kim2019_CB_120C_10minute_65nm_spincoat
+PNDI2ODT2_Kim2019_CB_35C_80nm_spincoat
+PE_Smith2020_Xyl_RT_50nm_dropcast
+ZnO_Garcia2022_EtOH_300C_30minute_100nm_sputter
+
+
+------------------------------------------------------------
+Characterization IDs
+------------------------------------------------------------
+
+PNDI2ODT2_Kim2019_CB_120C_10minute_65nm_spincoat_GIWAXS_2d_map
+PNDI2ODT2_Kim2019_CB_120C_10minute_65nm_spincoat_GIWAXS_1d_linecut_oop
+PNDI2ODT2_Kim2019_CB_120C_10minute_65nm_spincoat_GIWAXS_1d_linecut_ip
+
+
+------------------------------------------------------------
+JSON File Paths
+------------------------------------------------------------
+
+raw/literature/method_json/Kim2019.json
+
+raw/literature/experiment_json/
+PNDI2ODT2_Kim2019_CB_120C_10minute_65nm_spincoat.json
+
+raw/literature/char_metadata/
+PNDI2ODT2_Kim2019_CB_120C_10minute_65nm_spincoat_GIWAXS_2d_map.json
+
+
+------------------------------------------------------------
+Data Output Paths
+------------------------------------------------------------
+
+raw/literature/giwaxs_2d_csv/
+PNDI2ODT2_Kim2019_CB_120C_10minute_65nm_spincoat.csv
+
+raw/literature/giwaxs_1d_csv/
+PNDI2ODT2_Kim2019_CB_120C_10minute_65nm_spincoat_oop.csv

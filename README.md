@@ -111,7 +111,7 @@ Example:
 ```csv
 |    experiment_id    | material_id | reference_type |  reference_doi    |    solvent    | concentration_mg_ml | casting_method | substrate | anneal_temp_C | anneal_time_min | film_thickness_nm | characterization_type | characterization_metadata_json |                        peaks_json                           | orientation_label |                         giwaxs_1d_path                 |                   giwaxs_2d_path                   | include_in_unity |        notes       |
 |---------------------|-------------|----------------|-------------------|---------------|---------------------|----------------|-----------|---------------|-----------------|-------------------|-----------------------|--------------------------------|-------------------------------------------------------------|-------------------|--------------------------------------------------------|----------------------------------------------------|------------------|--------------------|
-| PNDI2ODT2_CB_120C   |  PNDI2ODT2  |   literature   | 10.1234/abcd.5678 | chlorobenzene |        10           |    bladecoat   |   SiO2    |      120      |        10       |        85         |         GIWAXS        |  "{""beam_energy_keV"":10.0}"  | "{""q100"":0.30,""q001"":1.76,""d100"":20.9,""d001"":3.57}" |     "edge-on"     | raw/literature/giwaxs_1d/PNDI2ODT2_CB_120C_linecut.csv | raw/literature/giwaxs_2d/PNDI2ODT2_CB_120C_map.csv |        1         |  "Main demo film"  |
+| PNDI2ODT2_CB_120C   |  PNDI2ODT2  |   literature   | 10.1234/abcd.5678 | chlorobenzene |        10           |    bladecoat   |   SiO2    |      120      |        10       |        85         |         GIWAXS        |  "{""beam_energy_keV"":10.0}"  | "{""q100"":0.30,""q001"":1.76,""d100"":20.9,""d001"":3.57}" |     edge-on      | raw/literature/giwaxs_1d/PNDI2ODT2_CB_120C_linecut.csv | raw/literature/giwaxs_2d/PNDI2ODT2_CB_120C_map.csv |        1         |  Main demo film   |
 ```
 
 `
@@ -204,5 +204,5 @@ Output paths (relative to repo root) are printed and should be pasted into `giwa
 
 ## Notes
 - The repository is intentionally local-first; it can later be mirrored to S3 or another object store without changing the layout.
-- JSON fields in CSVs (char_metadata_json, peaks_json, descriptor_json, box_size_A) should be valid JSON strings.
+- JSON fields in CSVs (characterization_metadata_json, peaks_json, descriptor_json, box_size_A) should be valid JSON strings.
 - All paths in CSVs are repo-relative, so cloning the repo preserves portability across machines.

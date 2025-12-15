@@ -1,0 +1,247 @@
+TwinSpec Lakehouse Naming Conventions
+===========================
+
+This document defines REQUIRED naming conventions for identifiers, CSV fields,
+and JSON files used in the TwinSpec lakehouse.
+
+Goals:
+- clarity
+- stability
+- zero ambiguity
+- compatibility with automation and Unity ingestion
+
+
+------------------------------------------------------------
+1. Core Identifier Conventions
+------------------------------------------------------------
+
+1.1 material_id
+----------------
+Purpose:
+Canonical identifier for a material system.
+
+Format:
+{MaterialAbbreviation}
+
+Rules:
+- Use established abbreviations when standard
+- No spaces
+- No hyphens
+- Uppercase preferred for polymers and inorganic compounds
+
+Examples:
+See naming_convention_examples.txt
+
+
+paper_id
+--------
+Purpose:
+Groups all experiments derived from a single paper.
+
+Format:
+{material_id}_{FirstAuthor}{Year}_{journalSlug}
+
+Rules:
+- Use FIRST author
+- Use publication year
+- journalSlug should be lowercase and abbreviated where appropriate
+- No spaces
+- No punctuation except underscores
+
+journalSlug conventions:
+- macromolecules
+- afm            (Advanced Functional Materials)
+- jacs
+- am             (Advanced Materials)
+- nmat           (Nature Materials)
+
+Examples:
+PNDI2ODT2_Tang2022_macromolecules
+PNDI2ODT2_Kim2019_afm
+PNDI2ODT2_Smith2020_jacs
+
+
+1.3 experiment_family_id
+------------------------
+Purpose:
+Groups related experiments sharing key processing constraints
+(e.g., same solvent and anneal temperature).
+
+Format:
+{material_id}_{solventAbbr}_{annealTempC}C
+
+Rules:
+- Represents a processing family, not a single film
+- Must NOT encode thickness, coating method, or anneal time
+- Used only for grouping and comparison
+
+
+1.4 experiment_id
+------------------
+Purpose:
+Uniquely identifies a single film/sample.
+
+Recommended format:
+{material_id}_{FirstAuthor}{Year}_{solventAbbr}_{annealTempC}C_{annealTimeMinute}minute_{thicknessNominal}nm_{castingMethod}
+
+Ordering rationale:
+Material → provenance → solvent → thermal conditions → physical outcome → deposition
+
+Rules:
+- Anneal temperature precedes anneal time
+- Anneal time omitted if not reported
+- Thickness uses nominal value when available
+- Casting method written in full (no abbreviations)
+- No units embedded inside numeric values except encoded suffixes (C, minute, nm)
+
+
+1.5 characterization_id
+------------------------
+Purpose:
+Identifies a single characterization dataset.
+
+Format:
+{experiment_id}_{charType}_{role}
+
+Rules:
+- Must be globally unique
+- One experiment_id may have many characterization_id values
+- Role must clarify dataset meaning (2D map, OOP linecut, etc.)
+
+
+------------------------------------------------------------
+2. CSV Column Value Conventions (experiments.csv)
+------------------------------------------------------------
+
+2.1 reference_type
+-------------------
+Allowed values:
+- literature
+- computed
+- database
+
+
+2.2 reference_doi
+------------------
+Rules:
+- Store DOI only
+- Do NOT include URL prefix
+
+Correct:
+10.1021/acs.macromol.2c01025
+
+Incorrect:
+https://doi.org/10.1021/acs.macromol.2c01025
+
+
+2.3 include_in_unity
+---------------------
+Values:
+- 1  → include in Unity demo
+- 0  → exclude
+
+
+2.4 solvent / solvent_mixture / additives
+------------------------------------------
+Rules:
+- Use full chemical names
+- Leave blank if not applicable or not reported
+- Do NOT use 0, "null", "none", or "NA"
+
+
+2.5 casting_method
+-------------------
+Rules:
+- Use full readable tokens
+- No abbreviations
+
+Examples:
+spincoat
+bladecoat
+dropcast
+slotdie
+doctor_blade
+sputter
+evaporate
+
+
+2.6 annealing fields
+--------------------
+- anneal: true / false
+- anneal_temp_C: numeric only
+- anneal_time_minute: numeric only; blank if not reported
+- anneal_atmosphere: air, nitrogen, vacuum, etc.
+
+If only ramp rate is reported:
+- leave anneal_time_minute blank
+- store ramp rate in experiment_json
+
+
+2.7 film thickness
+------------------
+Rules:
+- Numeric values only
+- Use min / max / nominal when a range is reported
+
+Fields:
+- film_thickness_min_nm
+- film_thickness_max_nm
+- film_thickness_nominal_nm
+
+
+2.8 orientation_label
+----------------------
+Allowed examples:
+edge-on
+face-on
+mixed
+isotropic
+textured
+textured (001)
+
+Notes:
+- Strings with spaces or parentheses do NOT require quotes in CSV
+
+
+------------------------------------------------------------
+3. JSON File Naming Conventions
+------------------------------------------------------------
+
+3.1 Method metadata (paper-level)
+----------------------------------
+Path:
+raw/literature/method_json/{paper_id}.json
+
+
+3.2 Experiment metadata (film-level)
+-------------------------------------
+Path:
+raw/literature/experiment_json/{experiment_id}.json
+
+
+3.3 Characterization metadata (dataset-level)
+----------------------------------------------
+Path:
+raw/literature/char_metadata/{characterization_id}.json
+
+
+------------------------------------------------------------
+4. File Path Conventions (Data Outputs)
+------------------------------------------------------------
+
+Rules:
+- Paths must be repo-relative
+- No absolute paths
+- Lowercase directory names
+- Descriptive filenames
+
+
+------------------------------------------------------------
+5. General Rules (Do Not Violate)
+------------------------------------------------------------
+
+- One experiment_id = one film condition
+- Blank CSV cells represent unknown or not applicable
+- Do not encode units inside numeric values
+- Do not overload identifiers to represent groups
+- Grouping belongs in experiment_family_id

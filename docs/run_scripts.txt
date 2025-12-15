@@ -1,0 +1,12 @@
+from repo root
+    python scripts/digitize_giwaxs.py
+    python scripts/audit_paths.py
+
+    python scripts/image_to_giwaxs2d_csv.py \
+    --image raw/literature/fig_crops/PNDI2ODT2_CB_120C_full.png \
+    --experiment-id PNDI2ODT2_CB_120C \
+    --map-id full \ #full giwaxs 2d map
+    --qz-min 0 --qz-max 17 \
+    --qxy-min -2 --qxy-max 2 \
+    --q-units "1/nm" \
+    --downsample 2 #half resolution, keep every 2nd pixel in both directions
