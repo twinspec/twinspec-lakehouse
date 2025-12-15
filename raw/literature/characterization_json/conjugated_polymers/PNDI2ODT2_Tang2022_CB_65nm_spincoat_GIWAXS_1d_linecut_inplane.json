@@ -1,0 +1,120 @@
+{
+  "characterization_id": "PNDI2ODT2_Tang2022_CB_65nm_spincoat_GIWAXS_1d_linecut_inplane",
+  "experiment_id": "PNDI2ODT2_Tang2022_CB_65nm",
+  "char_type": "GIWAXS",
+  "role": "1d_linecut",
+  "primary_for_experiment": false,
+  "provenance": {
+    "paper_id": "PNDI2ODT2_Tang2022_macromolecules",
+    "reference_doi": "10.1021/acs.macromol.2c01025",
+    "figure_id": "PNDI2ODT2_CB_ip_PNDI2ODT2_2022_ljtang",
+    "figure_panel": "(a)",
+    "caption_notes": "In-plane (qxy) linecuts for multiple annealing temperatures. Curves appear vertically offset and intensity axis is log-scaled."
+  },
+  "raw_inputs": {
+    "source_pdf_path": "raw/literature/papers/PNDI2ODT2_Tang2022_macromolecules.pdf",
+    "source_figure_crop_path": "raw/literature/giwaxs_1d_images/no_axes/PNDI2ODT2_CB_ip_PNDI2ODT2_2022_ljtang.png",
+    "notes": "source_figure_crop_path points to the specific 1D linecut plot crop used for digitization (not the 2D GIWAXS map)."
+  },
+  "instrument": {
+    "beamline": "",
+    "facility": "Australian Synchrotron",
+    "detector_type": "2d",
+    "detector_distance_mm": 747,
+    "beam_energy_keV": 15,
+    "wavelength_A": 0.827,
+    "incident_angle_deg": 0.095,
+    "exposure_time_s": 1,
+    "pixel_size_mm": {
+      "x": 0.175,
+      "y": 0.175
+    },
+    "beam_center_px": {
+      "x": null,
+      "y": null
+    },
+    "notes": "Incident angle reported as a range (0.07\u20130.12 deg); nominal stored in incident_angle_deg. Put full range in notes_freeform if needed."
+  },
+  "q_mapping": {
+    "axis": "qxy",
+    "q_min": 0.0,
+    "q_max": 2.0,
+    "units": "1/A",
+    "notes": "Set q_min/q_max to match the x-axis endpoints on the 1D linecut figure. Units should match the plotted axis (qxy in A^-1 in the figure)."
+  },
+  "intensity_axis": {
+    "scale": "log10",
+    "I_min": 10000000.0,
+    "I_max": 10000000000000.0,
+    "units": "a.u.",
+    "notes": "Axis tick labels in the figure span ~1e7 to ~1e13. Curves are stacked/offset; absolute intensity may not be fully recoverable."
+  },
+  "masks_and_artifacts": {
+    "colorbar_present_in_crop": false,
+    "axis_labels_present_in_crop": false,
+    "panel_labels_present_in_crop": true,
+    "legend_present_in_crop": true,
+    "curve_overlap_present": true,
+    "mask_strategy": "none",
+    "custom_mask_path": "",
+    "notes": "This is a stacked multi-curve plot with legend. Digitizer should target each curve and ignore legend/annotations."
+  },
+  "image_processing": {
+    "pre_crop_path": "raw/literature/giwaxs_1d_unedited/PNDI2ODT2_CB_ip_PNDI2ODT2_2022_ljtang.png",
+    "post_crop_path": "raw/literature/giwaxs_1d_images/no_axes/PNDI2ODT2_CB_ip_PNDI2ODT2_2022_ljtang.png",
+    "background_subtracted": false,
+    "normalization_method": "",
+    "downsample_factor": 2,
+    "notes": ""
+  },
+  "digitization": {
+    "digitizer": "TwinSpec_Auto",
+    "digitizer_version": "0.1",
+    "parameters": {
+      "num_curves": 8,
+      "curve_labels": [
+        "30C",
+        "100C",
+        "150C",
+        "200C",
+        "250C",
+        "275C",
+        "300C",
+        "320C"
+      ],
+      "ignore_border_px": 5,
+      "max_jump_px": 14,
+      "y_axis_scale": "log10",
+      "curve_extraction_strategy": "track_rgb_lines",
+      "assume_linear_colormap": true,
+      "colormap_name_if_known": "",
+      "use_colorbar_if_present": false,
+      "legend_masking": true,
+      "annotation_masking": true
+    },
+    "outputs": {
+      "digitized_1d_csv_paths": [
+        "raw/literature/giwaxs_1d_csv/PNDI2ODT2_Tang2022_CB_65nm_spincoat_GIWAXS_1d_linecut_inplane__30C.csv",
+        "raw/literature/giwaxs_1d_csv/PNDI2ODT2_Tang2022_CB_65nm_spincoat_GIWAXS_1d_linecut_inplane__100C.csv",
+        "raw/literature/giwaxs_1d_csv/PNDI2ODT2_Tang2022_CB_65nm_spincoat_GIWAXS_1d_linecut_inplane__150C.csv",
+        "raw/literature/giwaxs_1d_csv/PNDI2ODT2_Tang2022_CB_65nm_spincoat_GIWAXS_1d_linecut_inplane__200C.csv",
+        "raw/literature/giwaxs_1d_csv/PNDI2ODT2_Tang2022_CB_65nm_spincoat_GIWAXS_1d_linecut_inplane__250C.csv",
+        "raw/literature/giwaxs_1d_csv/PNDI2ODT2_Tang2022_CB_65nm_spincoat_GIWAXS_1d_linecut_inplane__275C.csv",
+        "raw/literature/giwaxs_1d_csv/PNDI2ODT2_Tang2022_CB_65nm_spincoat_GIWAXS_1d_linecut_inplane__300C.csv",
+        "raw/literature/giwaxs_1d_csv/PNDI2ODT2_Tang2022_CB_65nm_spincoat_GIWAXS_1d_linecut_inplane__320C.csv"
+      ]
+    }
+  },
+  "derived_summary": {
+    "orientation_label": "face-on",
+    "peaks_json": {
+      "q100": 0.255,
+      "q010": 1.604,
+      "q001": 0.4601,
+      "q002": 0.8955,
+      "q004": 1.7728
+    },
+    "notes": "Peaks listed here are paper-reported/derived summary values; 1D digitization outputs should be stored as separate per-curve CSVs."
+  },
+  "notes_freeform": "Incident angle range was 0.07\u20130.12 deg (nominal 0.095 deg). This characterization groups multiple annealing temperatures into one experiment_id for convenience; per-curve CSVs should include curve_label in filename."
+}

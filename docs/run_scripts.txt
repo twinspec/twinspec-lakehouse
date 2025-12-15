@@ -20,6 +20,10 @@ from repo root
   --input raw/literature/giwaxs_2d_csv/PNDI2ODT2_Tang2022_CB_35C_65nm_spincoat_2d_map.csv \
   --output curated/experiments/PNDI2ODT2_Tang2022_CB_35C_65nm_spincoat_giwaxs_core.csv
 
-python scripts/plot_giwaxs_2d.py \
+python scripts/plot_giwaxs2d.py \
   --csv curated/experiments/PNDI2ODT2_Tang2022_CB_35C_65nm_spincoat_giwaxs_core.csv
+
+python scripts/image_to_giwaxs1d_csv.py \
+  --characterization-json raw/literature/characterization_json/conjugated_polymers/PNDI2ODT2_Tang2022_inplane_linecuts.json
+
 
